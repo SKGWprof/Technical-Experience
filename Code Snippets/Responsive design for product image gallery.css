@@ -1,0 +1,121 @@
+	/* Display the image gallery and thumbnails side-by-side (horizontally) */
+.woocommerce-product-gallery {
+	display: flex;
+	column-gap: 10px;
+	margin: 0 !important;
+}
+
+/* Make the image gallery take around 80% of total width */
+.woocommerce-product-gallery .flex-viewport {
+	flex-basis: 82%;
+	margin: 0 !important;
+}
+
+/* Make the thumbnail image container take around 20% of total width and customize its design */
+.flex-control-thumbs {
+    display: flex;
+	flex-basis: 18%;
+    flex-direction: column;
+ 	order: -1;
+	z-index: 2;
+	overflow-y: auto;  /* Enable scrolling if content overflows */
+    padding: 0;
+    margin: auto 0 !important;
+}
+
+/* Customize the gallery image */
+.woocommerce-product-gallery__image img {
+	border-radius: 0px;
+	object-fit: cover;
+}
+
+/* Adjust position of the full-size image trigger button */
+.woocommerce-product-gallery__trigger {
+	right: em !important;
+}
+
+/* Adjust the width and spaces of individual thumbnail image containers and add transition for sliding effect */
+.flex-control-thumbs li {
+	min-width: 100%;
+	max-height: 400px;
+	margin-bottom: 10px !important;
+	transition: margin-top 0.4s linear;
+}
+
+/* Add borders to the active thumbnail image for clear indication */
+.flex-active {
+	border: 2px solid #F1F1F1;
+}
+
+/* Media Query for screens with a maximum width of 1024px (e.g., tablets and smaller) */
+@media (max-width: 1024px) {
+    /* Prevent horizontal scrolling on the page */
+    body {
+        overflow-x: none !important; /* Disables horizontal scroll */
+    }
+
+    /* Reset display style on elements to disable flex */
+    .elementor-999 .elementor-element.elementor-element-916613b,
+    .elementor-999 .elementor-element.elementor-element-c91f2db {
+        display: unset !important;  /* Removes any inline or default display property */
+    }
+
+    /* Ensure the main gallery image stretches across the full width */
+    .woocommerce-product-gallery .flex-viewport {
+        width: 100% !important;  /* Makes the gallery image full width */
+        max-width: 100% !important;
+        flex-basis: 100% !important; /* Set flex-basis to 100% to ensure it takes the full container width */
+    }
+
+    /* Hide the thumbnail images and the thumbnail container */
+    .flex-control-thumbs {
+     	display: none;
+    }
+
+    /* Hide the full-size image trigger button */
+    .woocommerce-product-gallery__trigger {
+        display: none !important; /* Hides the trigger for full-size image view */
+    }
+    
+    /* Make the main gallery image responsive */
+    .woocommerce-product-gallery__image img {
+        width: 100% !important; /* Ensures the main image takes full width */
+        height: auto !important; /* Maintains aspect ratio of the image */
+    }
+}
+
+/* Reset custom styles for Firefox without affecting Elementor's defaults */
+@-moz-document url-prefix() {
+    .woocommerce-product-gallery {
+        display: block !important;  /* Revert to block layout */
+    }
+
+    .woocommerce-product-gallery .flex-viewport {
+        flex-basis: auto !important;
+        margin: initial !important;
+    }
+
+    .flex-control-thumbs {
+        display: block !important;
+        flex-basis: auto !important;
+        flex-direction: row !important;
+        overflow-y: visible !important;
+        margin: initial !important;
+    }
+
+    .woocommerce-product-gallery__image img {
+        object-fit: contain !important;
+        border-radius: initial !important;
+    }
+
+    .flex-control-thumbs li {
+        min-width: auto !important;
+        max-height: initial !important;
+        margin-top: 7px !important; /* Padding between rows of thumbnails */
+        transition: none !important;
+    }
+
+    .flex-active {
+        border: initial !important;
+    }
+}
