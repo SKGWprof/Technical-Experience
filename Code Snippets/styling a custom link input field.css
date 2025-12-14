@@ -1,0 +1,64 @@
+/* Style the custom link instruction text */
+.custom-link-instruction {
+    background-color: white;
+    width: fit-content;
+    padding: 0.2em;
+    font-family: Gilroy, sans-serif;
+    font-size: 1em;
+    margin-top: 2em;
+	margin-bottom: 0.5em;
+    border: 1px solid #ccc; /* Optional: add border for better visibility */
+}
+
+/* Style the custom link input field */
+.custom-link-field input {
+    padding: 8px;
+    font-size: 1em;
+	margin-bottom: 1em;
+	height: auto !important;
+}
+
+
+/* Style the custom link in the cart page */
+.woocommerce-cart .variation {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.woocommerce-cart .variation-CustomLink {
+  display: flex;
+  align-items: center; /* Vertically aligns the text */
+}
+
+.woocommerce-cart dt.variation-CustomLink {
+  color: #FFFFFF !important;
+  font-size: 1em;
+  /* `display: inline` is not necessary here and can be removed */
+}
+
+.woocommerce-cart span.variation-CustomLink {
+  color: #FFFFFF !important;
+  font-size: 0.7em !important;
+  margin-left: 5px; /* Adds a small space between the two elements */
+  /* `display: inline` is not necessary here and can be removed */
+}
+
+.woocommerce-cart .elementor-widget-woocommerce-cart span.variation-CustomLink {
+    font-family: "Gilroy" !important;
+}
+
+/* Checkout and Thank You Page Custom Link Styling */
+.woocommerce-checkout .variation-CustomLink {
+    font-family: 'Gilroy', sans-serif;
+	font-size: 1rem !important;
+    margin: 0 0;
+	color: #000000 !important;
+}
+
+.woocommerce-order-received .elementor-widget-woocommerce-purchase-summary .woocommerce strong {
+    color: unset;
+}
+
+
+
+
